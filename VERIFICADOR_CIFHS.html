@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elecciones CIFHS 2026–2028 — AGENCIAS RANSA S.A.C.</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:        #1B4D1E;
+    --navy-mid:    #163D19;
+    --navy-light:  #2D6B31;
+    --gold:        #3AAA35;
+    --gold-light:  #5DC458;
+    --gold-pale:   #EBF7EA;
+    --white:       #FFFFFF;
+    --gray-100:    #F4F8F4;
+    --gray-200:    #E2EDE2;
+    --gray-400:    #7A9E7C;
+    --gray-700:    #2E4D30;
+    --success:     #1B4D1E;
+    --success-bg:  #EBF7EA;
+    --success-bd:  #A5D4A3;
+    --error:       #8B1A1A;
+    --error-bg:    #FBEAEa;
+    --error-bd:    #E0A5A5;
+    --radius:      4px;
+    --radius-lg:   8px;
+    --shadow-sm:   0 1px 4px rgba(27,77,30,0.08);
+    --shadow-md:   0 4px 20px rgba(27,77,30,0.12);
+    --shadow-lg:   0 8px 40px rgba(27,77,30,0.18);
+    --transition:  0.2s ease;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--gray-100);
+    color: var(--navy);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── TOP BAR ── */
+  .topbar {
+    background: var(--navy);
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    border-bottom: 2px solid var(--gold);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .topbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+  .brand-logo {
+    height: 38px;
+    width: auto;
+    display: block;
+  }
+  .topbar-right {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 11px; font-weight: 500; letter-spacing: 1px;
+    text-transform: uppercase; color: rgba(255,255,255,0.6);
+  }
+  .status-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #7DEB7A;
+    animation: blink 2s infinite;
+  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+  /* ── HEADER BAND ── */
+  .header-band {
+    background: var(--navy-mid);
+    padding: 40px 32px 36px;
+    text-align: center;
+    border-bottom: 1px solid rgba(58,170,53,0.25);
+  }
+  .election-tag {
+    display: inline-block;
+    border: 1px solid rgba(90,196,88,0.5);
+    color: #7DEB7A;
+    font-size: 10px; font-weight: 600; letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    margin-bottom: 18px;
+  }
+  .header-band h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(22px, 4vw, 32px);
+    color: var(--white);
+    font-weight: 400;
+    line-height: 1.25;
+    margin-bottom: 10px;
+    letter-spacing: 0.3px;
+  }
+  .header-band p {
+    font-size: 13px; color: var(--gray-400);
+    line-height: 1.7; max-width: 480px; margin: 0 auto;
+  }
+  .meta-row {
+    display: flex; align-items: center; justify-content: center;
+    gap: 24px; margin-top: 22px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .meta-item {
+    text-align: center;
+  }
+  .meta-value {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px; color: #7DEB7A;
+    line-height: 1;
+  }
+  .meta-label {
+    font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--gray-400); margin-top: 4px;
+  }
+  .meta-divider {
+    width: 1px; height: 32px;
+    background: rgba(255,255,255,0.08);
+  }
+
+  /* ── MAIN ── */
+  main {
+    flex: 1;
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 36px 20px 56px;
+  }
+
+  /* ── PANEL ── */
+  .panel {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    box-shadow: var(--shadow-md);
+    padding: 36px 32px;
+    margin-bottom: 16px;
+    animation: riseIn 0.4s cubic-bezier(0.16,1,0.3,1) both;
+  }
+  @keyframes riseIn {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .panel-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: #3AAA35;
+    margin-bottom: 6px;
+  }
+  .panel-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px; color: var(--navy);
+    font-weight: 400; margin-bottom: 6px;
+  }
+  .panel-desc {
+    font-size: 13px; color: var(--gray-400);
+    margin-bottom: 24px; line-height: 1.6;
+  }
+
+  /* ── DNI INPUT ── */
+  .input-wrapper { position: relative; margin-bottom: 14px; }
+  .input-prefix {
+    position: absolute; left: 16px; top: 50%; transform: translateY(-50%);
+    font-size: 11px; font-weight: 700; letter-spacing: 1px;
+    color: var(--gray-400); text-transform: uppercase;
+    pointer-events: none;
+    border-right: 1px solid var(--gray-200);
+    padding-right: 12px;
+    line-height: 1;
+  }
+  .dni-input {
+    width: 100%;
+    background: var(--gray-100);
+    border: 1.5px solid var(--gray-200);
+    padding: 16px 16px 16px 68px;
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    letter-spacing: 8px;
+    color: var(--navy);
+    outline: none;
+    transition: all var(--transition);
+    display: block;
+  }
+  .dni-input::placeholder {
+    color: var(--gray-200);
+    letter-spacing: 6px;
+    font-size: 22px;
+  }
+  .dni-input:focus {
+    background: var(--white);
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(196,154,60,0.12);
+  }
+  .dni-input::-webkit-inner-spin-button,
+  .dni-input::-webkit-outer-spin-button { -webkit-appearance: none; }
+  .dni-input[type=number] { -moz-appearance: textfield; }
+
+  /* ── BUTTON ── */
+  .btn-primary {
+    width: 100%;
+    background: var(--navy);
+    border: none;
+    padding: 16px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--white);
+    cursor: pointer;
+    transition: all var(--transition);
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+  }
+  .btn-primary:hover {
+    background: var(--navy-light);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-1px);
+  }
+  .btn-primary:active { transform: translateY(0); }
+
+  .btn-gold {
+    background: var(--gold);
+    color: var(--navy);
+  }
+  .btn-gold:hover { background: var(--gold-light); }
+
+  .btn-outline {
+    width: 100%;
+    background: transparent;
+    border: 1.5px solid var(--gray-200);
+    padding: 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--gray-700);
+    cursor: pointer;
+    transition: all var(--transition);
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+  }
+  .btn-outline:hover { border-color: var(--navy); color: var(--navy); }
+
+  .hint { text-align: center; margin-top: 10px; font-size: 11px; color: var(--gray-400); letter-spacing: 0.3px; }
+  .hint kbd {
+    background: var(--gray-100);
+    border: 1px solid var(--gray-200);
+    padding: 1px 6px;
+    font-family: inherit;
+    font-size: 10px; font-weight: 600;
+    color: var(--gray-700);
+    border-radius: 2px;
+  }
+
+  /* ── RESULT ── */
+  #result { display: none; animation: riseIn 0.4s cubic-bezier(0.16,1,0.3,1) both; }
+
+  .result-panel {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+
+  .result-header {
+    padding: 24px 32px;
+    display: flex; align-items: center; gap: 20px;
+    border-bottom: 1px solid var(--gray-200);
+  }
+  .result-header.success { background: var(--success-bg); border-bottom-color: var(--success-bd); }
+  .result-header.error   { background: var(--error-bg);   border-bottom-color: var(--error-bd);   }
+
+  .result-icon {
+    width: 48px; height: 48px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .result-icon svg { width: 36px; height: 36px; }
+
+  .result-badge {
+    font-size: 10px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; margin-bottom: 4px;
+  }
+  .result-badge.success { color: var(--success); }
+  .result-badge.error   { color: var(--error); }
+
+  .result-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(16px, 3.5vw, 21px);
+    color: var(--navy);
+    font-weight: 400; line-height: 1.2;
+  }
+
+  .result-body { padding: 24px 32px; }
+
+  .info-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 12px; margin-bottom: 20px;
+  }
+  .info-item {
+    background: var(--gray-100);
+    border: 1px solid var(--gray-200);
+    padding: 13px 15px;
+  }
+  .info-item.full { grid-column: 1 / -1; }
+  .info-item-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--gray-400); margin-bottom: 5px;
+  }
+  .info-item-value {
+    font-family: 'DM Serif Display', serif;
+    font-size: 15px; color: var(--navy); font-weight: 400;
+    letter-spacing: 0.3px;
+  }
+
+  /* ── VOTE QUESTION ── */
+  .vote-section {
+    border-top: 1px solid var(--gray-200);
+    padding-top: 22px; margin-top: 4px;
+  }
+  .vote-question {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px; color: var(--navy);
+    margin-bottom: 6px; font-weight: 400;
+  }
+  .vote-desc {
+    font-size: 12px; color: var(--gray-400); margin-bottom: 18px; line-height: 1.6;
+  }
+  .vote-btns {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  /* ── VOTED CONFIRMATION ── */
+  .voted-box {
+    background: var(--navy);
+    padding: 28px;
+    text-align: center;
+  }
+  .voted-check {
+    width: 52px; height: 52px;
+    border: 2px solid #3AAA35;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 16px;
+  }
+  .voted-check svg { width: 28px; height: 28px; }
+  .voted-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px; color: var(--white);
+    font-weight: 400; margin-bottom: 8px;
+  }
+  .voted-desc {
+    font-size: 12px; color: var(--gray-400); line-height: 1.7;
+    max-width: 300px; margin: 0 auto 20px;
+  }
+
+  /* ── NOT VOTED ── */
+  .notvoted-box {
+    background: #EBF7EA;
+    border: 1px solid rgba(58,170,53,0.3);
+    padding: 24px;
+    margin-bottom: 12px;
+  }
+  .notvoted-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 17px; color: var(--navy);
+    font-weight: 400; margin-bottom: 6px;
+  }
+  .notvoted-desc {
+    font-size: 12px; color: var(--gray-700); line-height: 1.7; margin-bottom: 16px;
+  }
+  .btn-forms {
+    width: 100%;
+    background: var(--gold);
+    border: none;
+    padding: 15px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px; font-weight: 700;
+    letter-spacing: 1px; text-transform: uppercase;
+    color: var(--navy); cursor: pointer;
+    transition: all var(--transition);
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    text-decoration: none;
+  }
+  .btn-forms:hover {
+    background: var(--gold-light);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+  }
+
+  /* ── NOT IN PADRON ── */
+  .dni-display {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px; letter-spacing: 8px;
+    color: var(--error); background: var(--error-bg);
+    border: 1px solid var(--error-bd);
+    padding: 14px; margin-bottom: 14px; text-align: center;
+  }
+  .error-msg {
+    font-size: 13px; color: var(--gray-700); line-height: 1.7; margin-bottom: 12px;
+  }
+  .error-note {
+    font-size: 12px; color: var(--gray-400);
+    background: var(--gray-100); border: 1px solid var(--gray-200);
+    padding: 12px 14px; line-height: 1.6; margin-bottom: 18px;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    border: none; border-top: 1px solid var(--gray-200);
+    margin: 0;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center; padding: 20px;
+    font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--gray-400);
+    border-top: 1px solid var(--gray-200);
+  }
+
+  /* ── SHAKE ── */
+  @keyframes shake {
+    0%,100%{transform:translateX(0)} 20%{transform:translateX(-8px)}
+    40%{transform:translateX(8px)} 60%{transform:translateX(-5px)}
+    80%{transform:translateX(5px)}
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 480px) {
+    .topbar { padding: 0 16px; }
+    .topbar-right { display: none; }
+    .header-band { padding: 28px 20px 24px; }
+    .panel, .result-body, .voted-box, .notvoted-box { padding: 24px 20px; }
+    .result-header { padding: 18px 20px; }
+    .info-grid { grid-template-columns: 1fr; }
+    .vote-btns { grid-template-columns: 1fr; }
+    .dni-input { font-size: 22px; letter-spacing: 6px; padding-left: 72px; }
+    .meta-row { gap: 14px; }
+    .meta-value { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-brand">
+    <!-- Logo RANSA SVG inline -->
+    <svg class="brand-logo" viewBox="0 0 180 60" xmlns="http://www.w3.org/2000/svg" aria-label="Agencias RANSA">
+      <!-- Ícono R con hoja verde -->
+      <rect x="2" y="8" width="44" height="44" rx="3" fill="#3AAA35"/>
+      <!-- Letra R blanca -->
+      <text x="10" y="40" font-family="Arial Black, sans-serif" font-size="30" font-weight="900" fill="white">R</text>
+      <!-- Hoja/ángulo decorativo esquina superior derecha -->
+      <polygon points="30,8 46,8 46,22" fill="#2D8A28"/>
+      <!-- Texto AGENCIAS -->
+      <text x="56" y="24" font-family="Arial, sans-serif" font-size="9" font-weight="700" letter-spacing="1.5" fill="#A5D4A3" text-transform="uppercase">AGENCIAS</text>
+      <!-- Texto RANSA -->
+      <text x="54" y="46" font-family="Arial Black, sans-serif" font-size="26" font-weight="900" fill="white">RANSA</text>
+    </svg>
+  </div>
+  <div class="topbar-right">
+    <div class="status-dot"></div>
+    Sistema Electoral Activo
+  </div>
+</div>
+
+<!-- HEADER BAND -->
+<div class="header-band">
+  <div class="election-tag">Proceso Electoral 2026 – 2028</div>
+  <h1>Verificación de Padrón Electoral</h1>
+  <p>Comité de Intervención frente al Hostigamiento Sexual (CIFHS)<br>AGENCIAS RANSA S.A.C.</p>
+  <div class="meta-row">
+    <div class="meta-item">
+      <div class="meta-value">89</div>
+      <div class="meta-label">Trabajadores habilitados</div>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <div class="meta-value">2026</div>
+      <div class="meta-label">Período de elección</div>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <div class="meta-value">2028</div>
+      <div class="meta-label">Fin de gestión</div>
+    </div>
+  </div>
+</div>
+
+<main>
+
+  <!-- QUERY PANEL -->
+  <div class="panel" id="queryPanel">
+    <div class="panel-label">Consulta de habilitación</div>
+    <div class="panel-title">Ingrese su número de DNI</div>
+    <div class="panel-desc">Solo los 8 dígitos, sin puntos ni espacios. La consulta es instantánea y confidencial.</div>
+
+    <div class="input-wrapper">
+      <span class="input-prefix">DNI</span>
+      <input class="dni-input" id="dniInput" type="number" placeholder="00000000"
+        autocomplete="off" oninput="limitarDni(this)" onkeydown="handleKey(event)" />
+    </div>
+
+    <button class="btn-primary" onclick="verificar()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      Verificar Habilitación
+    </button>
+    <p class="hint">También puede presionar <kbd>Enter ↵</kbd> para consultar</p>
+  </div>
+
+  <!-- RESULT -->
+  <div id="result"></div>
+
+</main>
+
+<footer>AGENCIAS RANSA S.A.C. &nbsp;·&nbsp; Verificación Electoral CIFHS &nbsp;·&nbsp; Período 2026–2028</footer>
+
+<script>
+const PADRON = [{"N": "1", "NOMBRE": "ALFARO PANAYFO, ROGER PAUL", "AREA": "IMPORTACIONES AEREAS", "DNI": "09908833"}, {"N": "2", "NOMBRE": "ALVARADO MAURI, CARLOS", "AREA": "IMPORTACIONES MARITIMAS", "DNI": "72500654"}, {"N": "3", "NOMBRE": "ANCHANTE MIRANDA, BRENDA FIORELLA", "AREA": "IMPORTACIONES AEREAS", "DNI": "71400829"}, {"N": "4", "NOMBRE": "AYALA SOLANO, MARIA ANGELICA", "AREA": "ADMINISTRACION AGENCIAS", "DNI": "41467493"}, {"N": "5", "NOMBRE": "AZPIRI NUÑEZ, ERNESTO", "AREA": "IMPORTACIONES MARITIMAS", "DNI": "25728355"}, {"N": "6", "NOMBRE": "BERNUY ANTON, JOSE BRAULIO", "AREA": "IMPORTACIONES MARITIMAS", "DNI": "42244116"}, {"N": "7", "NOMBRE": "BLAIR ARZE, JUAN FERNANDO", "AREA": "LIQUIDACIONES", "DNI": "07876280"}, {"N": "8", "NOMBRE": "CAMPOS GOMEZ SANCHEZ, EDUARDO RAFAEL", "AREA": "EXPORTACIONES", "DNI": "09670970"}, {"N": "9", "NOMBRE": "CANDIA VIDALON, MARIO MARTIN", "AREA": "IMPORTACIONES MARITIMAS", "DNI": "25475497"}, {"N": "10", "NOMBRE": "CAPCHA RAMIREZ, CESAR", "AREA": "ARCHIVO DE TRABAJO", "DNI": "08590466"}, {"N": "11", "NOMBRE": "CASAS VILCHEZ, ROSALIA", "AREA": "LIQUIDACIONES", "DNI": "41545309"}, {"N": "12", "NOMBRE": "CASTAÑON QUISPE, CARMEN OFELIA", "AREA": "ADMINISTRACION AGENCIAS", "DNI": "74910230"}, {"N": "13", "NOMBRE": "CASTILLO MENDOZA, NELIDA RAQUEL", "AREA": "LIQUIDACIONES", "DNI": "10124423"}, {"N": "14", "NOMBRE": "CHERRES BERECHE, MIGUEL ANGEL", "AREA": "IMPORTACIONES AEREAS", "DNI": "25403045"}, {"N": "15", "NOMBRE": "CHIHUANTITO QUISPE, JAVIER ANTONIO", "AREA": "ADMINISTRACION AGENCIAS", "DNI": "10036547"}, {"N": "16", "NOMBRE": "CHIRA CAMPOS, SERGIO MANUEL", "AREA": "LIQUIDACIONES", "DNI": "25573512"}, {"N": "17", "NOMBRE": "CHOY SANDER, JUAN PABLO", "AREA": "LIQUIDACIONES", "DNI": "44167413"}, {"N": "18", "NOMBRE": "CISNEROS GARCIA, MARICELA ANTONIA", "AREA": "OPERACIONES", "DNI": "04634353"}, {"N": "19", "NOMBRE": "CUNYA GARCIA, YULY GUSMERY", "AREA": "IMPORTACIONES MARITIMAS", "DNI": "47267632"}, {"N": "20", "NOMBRE": "DEL MAZO ZUNICO, ALEXANDRO GABRIEL", "AREA": "IMPORTACIONES MARITIMAS", "DNI": "70224404"}, {"N": "21", "NOMBRE": "DIAZ COLONIA, WILLIAM WILFREDO", "AREA": "OPERACIONES", "DNI": "71914282"}, {"N": "22", "NOMBRE": "DIESTRA AGUILAR, ANTONIO", "AREA": "TECNICA ADUANERA", "DNI": "45506231"}, {"N": "23", "NOMBRE": "DOMINGUEZ SEMBRERA, KEVIN HOWER", "AREA": "TECNICA ADUANERA", "DNI": "70654379"}, {"N": "24", "NOMBRE": "ELERA LOPEZ, MARIANA", "AREA": "LIQUIDACIONES", "DNI": "09636305"}, {"N": "25", "NOMBRE": "ESPINOZA BAUTISTA, KAROL MARICIELO", "AREA": "LIQUIDACIONES", "DNI": "74421581"}, {"N": "26", "NOMBRE": "FLORES HUAMANI, KELSY JHOANNA", "AREA": "ADMINISTRACION AGENCIAS", "DNI": "74278859"}, {"N": "27", "NOMBRE": "FLORES PULIDO, JORGE LUIS", "AREA": "IMPORTACIONES AEREAS", "DNI": "18024048"}, {"N": "28", "NOMBRE": "GARAY LEON, BRENDA LUCIA", "AREA": "AGENCIAS RANSA", "DNI": "45835142"}, {"N": "29", "NOMBRE": "GARCIA PARDO FIGUEROA, JULIO CESAR", "AREA": "IMPORTACIONES MARITIMAS", "DNI": "43384027"}, {"N": "30", "NOMBRE": "GARCIA RETO, MARCO ANTONIO", "AREA": "IMPORTACIONES MARITIMAS", "DNI": "03461796"}, {"N": "31", "NOMBRE": "GARCIA RIOS, JOSE ALBERTO", "AREA": "IMPORTACIONES MARITIMAS", "DNI": "25804885"}, {"N": "32", "NOMBRE": "GARCIA SOLIS, LEYLA ZARELA", "AREA": "EXPORTACIONES", "DNI": "75813386"}, {"N": "33", "NOMBRE": "GOMEZ HUANCAYO, RAMON HUMBERTO", "AREA": "TECNICA ADUANERA", "DNI": "03491285"}, {"N": "34", "NOMBRE": "GOMEZ SOTO, MARCOS ANTONIO", "AREA": "IMPORTACIONES MARITIMAS", "DNI": "40633254"}, {"N": "35", "NOMBRE": "GUILLEN RODRIGUEZ, JOSE MANUEL", "AREA": "IMPORTACIONES MARITIMAS", "DNI": "25776892"}, {"N": "36", "NOMBRE": "HERRERA MANCILLA, REYNALDO JAVIER", "AREA": "IMPORTACIONES AEREAS", "DNI": "30822897"}, {"N": "37", "NOMBRE": "HIDALGO ADRIANZEN DE LEON, CARINA MERCEDES", "AREA": "ADMINISTRACION AGENCIAS", "DNI": "03493087"}, {"N": "38", "NOMBRE": "HOFLICH CUETO, RICARDO PAUL", "AREA": "LIQUIDACIONES", "DNI": "25524075"}, {"N": "39", "NOMBRE": "HOXSAS BENITES, JEFF HOSS", "AREA": "ARCHIVO DE TRABAJO", "DNI": "78290021"}, {"N": "40", "NOMBRE": "IBAÑEZ GARCIA, MARIA JESUS", "AREA": "IMPORTACIONES MARITIMAS", "DNI": "71483496"}, {"N": "41", "NOMBRE": "IBARBURU VALLADARES, JUAN ANTONIO ALFREDO", "AREA": "LIQUIDACIONES", "DNI": "10134496"}, {"N": "42", "NOMBRE": "IPARRAGUIRRE HILARIO, ROSA YSABEL", "AREA": "EXPORTACIONES", "DNI": "47947374"}, {"N": "43", "NOMBRE": "JORDAN LAURA, JACKELINE INES", "AREA": "ARCHIVO DE TRABAJO", "DNI": "73518986"}, {"N": "44", "NOMBRE": "LEON VERA, ALEJANDRO OSWALDO", "AREA": "LIQUIDACIONES", "DNI": "25720493"}, {"N": "45", "NOMBRE": "LOPEZ BECERRA, PAUL", "AREA": "LIQUIDACIONES", "DNI": "46691274"}, {"N": "46", "NOMBRE": "LOPEZ MOGOLLON, LUIS ENRIQUE", "AREA": "IMPORTACIONES MARITIMAS", "DNI": "03492544"}, {"N": "47", "NOMBRE": "MALPARTIDA MANRIQUE, MOISES LEO", "AREA": "IMPORTACIONES AEREAS", "DNI": "25630705"}, {"N": "48", "NOMBRE": "MARCE GUERRERO, LUIS SERGIO", "AREA": "OPERACIONES", "DNI": "42884081"}, {"N": "49", "NOMBRE": "MARCHAN SANCHEZ, JHON EDWAR", "AREA": "OPERACIONES", "DNI": "70054578"}, {"N": "50", "NOMBRE": "MEDINA TORRE, LUIS EDUARDO", "AREA": "TECNICA ADUANERA", "DNI": "45977653"}, {"N": "51", "NOMBRE": "MEDINA VIVAR, WALTER KENNET", "AREA": "EXPORTACIONES", "DNI": "73861040"}, {"N": "52", "NOMBRE": "MELGAREJO ORELLANA, VICTOR CLEMENTE", "AREA": "ADMINISTRACION AGENCIAS", "DNI": "25719970"}, {"N": "53", "NOMBRE": "MELGAREJO TORRES, BENJAMIN MARTIN", "AREA": "IMPORTACIONES MARITIMAS", "DNI": "25479462"}, {"N": "54", "NOMBRE": "MINAYA FERNANDEZ, RODOLFO HUMBERTO", "AREA": "TECNICA ADUANERA", "DNI": "06075918"}, {"N": "55", "NOMBRE": "MIRANDA LUDEÑA, CIRO DAVID", "AREA": "TECNICA ADUANERA", "DNI": "77102010"}, {"N": "56", "NOMBRE": "MORAN AVALO, FRANKLIN JHONY", "AREA": "LIQUIDACIONES", "DNI": "25852196"}, {"N": "57", "NOMBRE": "MUÑOZ ALTAMIRANO, YOBER", "AREA": "LIQUIDACIONES", "DNI": "43338882"}, {"N": "58", "NOMBRE": "NILUPU CHUNGA, EROTIDA JUANA", "AREA": "ARCHIVO DE TRABAJO", "DNI": "03494177"}, {"N": "59", "NOMBRE": "OCHOA MARTINEZ, REBECKA ANTONELLA", "AREA": "ADMINISTRACION AGENCIAS", "DNI": "60795917"}, {"N": "60", "NOMBRE": "OLIVA SALDARRIAGA, KENIA LOURDES", "AREA": "ARCHIVO DE TRABAJO", "DNI": "70315091"}, {"N": "61", "NOMBRE": "PANIAGUA BUSTAMANTE, RAFAELA GIOVANNA", "AREA": "CALL CENTER", "DNI": "06250927"}, {"N": "62", "NOMBRE": "PASACHE CALDERON, JAO JOEMAR", "AREA": "EXPORTACIONES", "DNI": "40560701"}, {"N": "63", "NOMBRE": "PEDRAJA VILLEGAS, PERUGINA MICAELA", "AREA": "OPERACIONES", "DNI": "70005993"}, {"N": "64", "NOMBRE": "PINEDA MESTAS, HONORATO", "AREA": "OPERACIONES", "DNI": "01229076"}, {"N": "65", "NOMBRE": "QUILLE PARANCO, BETSY MATYORI", "AREA": "EXPORTACIONES", "DNI": "74318254"}, {"N": "66", "NOMBRE": "RANDICH MORALES, FERNANDO EDMUNDO", "AREA": "EXPORTACIONES", "DNI": "07972006"}, {"N": "67", "NOMBRE": "RENTERIA CHUQUIHUACCHA, DAVID ALONSO", "AREA": "IMPORTACIONES MARITIMAS", "DNI": "43619927"}, {"N": "68", "NOMBRE": "REYNA RODRIGUEZ, EDUARDO ALBERTO", "AREA": "OPERACIONES", "DNI": "80686760"}, {"N": "69", "NOMBRE": "ROMANI FARFAN, JESUS JAIME", "AREA": "OPERACIONES", "DNI": "22256971"}, {"N": "70", "NOMBRE": "ROMERO CARDENAS, RICHARD", "AREA": "ARCHIVO DE TRABAJO", "DNI": "25840242"}, {"N": "71", "NOMBRE": "ROSALES JARA, KELLY ADELAIDA", "AREA": "ADMINISTRACION AGENCIAS", "DNI": "43139822"}, {"N": "72", "NOMBRE": "ROSARIO FERREL, RICARDO", "AREA": "OPERACIONES", "DNI": "18023598"}, {"N": "73", "NOMBRE": "RUIZ JUAREZ, JACKSON RAUL", "AREA": "EXPORTACIONES", "DNI": "46281746"}, {"N": "74", "NOMBRE": "SALAS ROBLES, VERONICA DEL PILAR", "AREA": "ADMINISTRACION AGENCIAS", "DNI": "47533840"}, {"N": "75", "NOMBRE": "SANCARRANCO ZAPATA, SANTOS JOSE", "AREA": "EXPORTACIONES", "DNI": "03461175"}, {"N": "76", "NOMBRE": "SANCHEZ DELGADO, EDWIN HAROLD", "AREA": "LIQUIDACIONES", "DNI": "25331934"}, {"N": "77", "NOMBRE": "SANDOVAL AGUIRRE, FELIX LEONIDAS", "AREA": "EXPORTACIONES", "DNI": "40190790"}, {"N": "78", "NOMBRE": "SANDOVAL TAPIA, ADAMO RICHARD", "AREA": "IMPORTACIONES MARITIMAS", "DNI": "25793884"}, {"N": "79", "NOMBRE": "SAUCEDO CALDERON, MARITZA", "AREA": "LIQUIDACIONES", "DNI": "25491671"}, {"N": "80", "NOMBRE": "TABBAH VILLANUEVA, STEPHANIE DARIUSHKA", "AREA": "TECNICA ADUANERA", "DNI": "46294036"}, {"N": "81", "NOMBRE": "TUNQUIPA MONTAÑEZ, ANGELICA", "AREA": "EXPORTACIONES", "DNI": "70524796"}, {"N": "82", "NOMBRE": "URBINA MERINO, ESMERLER JULIO", "AREA": "IMPORTACIONES MARITIMAS", "DNI": "41404198"}, {"N": "83", "NOMBRE": "VALLEJOS FERNANDEZ, BEBERLI LILIBETH", "AREA": "IMPORTACIONES MARITIMAS", "DNI": "75732278"}, {"N": "84", "NOMBRE": "VEGA INCHICAQUE, LUIS OSCAR", "AREA": "LEGAL", "DNI": "32024786"}, {"N": "85", "NOMBRE": "VELA SORIA, OSCAR ANDRE", "AREA": "EXPORTACIONES", "DNI": "46869793"}, {"N": "86", "NOMBRE": "VILLEGAS COLLAZOS, JULIO HENRY", "AREA": "LIQUIDACIONES", "DNI": "09929773"}, {"N": "87", "NOMBRE": "YBARRA ECHEVARRIA, MARIO", "AREA": "IMPORTACIONES AEREAS", "DNI": "25553596"}, {"N": "88", "NOMBRE": "ZETA PALACIOS, CRISTHIAN ANDRES", "AREA": "ADMINISTRACION AGENCIAS", "DNI": "70584478"}, {"N": "89", "NOMBRE": "ZEVALLOS YAÑEZ, JOSE CARLOS", "AREA": "EXPORTACIONES", "DNI": "30835693"}];
+
+const dniMap = {};
+PADRON.forEach(p => { dniMap[p.DNI] = p; });
+
+const FORMS_URL = 'https://forms.cloud.microsoft/r/dNTkqS46BW';
+
+function limitarDni(input) {
+  input.value = input.value.replace(/\D/g,'').slice(0,8);
+}
+function handleKey(e) { if(e.key==='Enter') verificar(); }
+
+function verificar() {
+  const raw = document.getElementById('dniInput').value.trim().replace(/\D/g,'');
+  if (!raw) {
+    const inp = document.getElementById('dniInput');
+    inp.style.animation = 'shake 0.4s ease';
+    inp.style.borderColor = '#E0A5A5';
+    setTimeout(() => { inp.style.animation=''; inp.style.borderColor=''; }, 600);
+    return;
+  }
+
+  const dniPadded = raw.padStart(8,'0');
+  const persona = dniMap[dniPadded] || dniMap[raw];
+  const resultDiv = document.getElementById('result');
+  resultDiv.style.display = 'none';
+  resultDiv.innerHTML = '';
+
+  setTimeout(() => {
+    if (persona) {
+      resultDiv.innerHTML = `
+        <div class="result-panel">
+          <div class="result-header success">
+            <div class="result-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#1A6B3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+            </div>
+            <div>
+              <div class="result-badge success">Habilitado para votar</div>
+              <div class="result-name">${persona.NOMBRE}</div>
+            </div>
+          </div>
+          <div class="result-body">
+            <div class="info-grid">
+              <div class="info-item">
+                <div class="info-item-label">Número de DNI</div>
+                <div class="info-item-value">${persona.DNI}</div>
+              </div>
+              <div class="info-item">
+                <div class="info-item-label">N.° en padrón</div>
+                <div class="info-item-value">#${persona.N}</div>
+              </div>
+              <div class="info-item full">
+                <div class="info-item-label">Área / Unidad organizativa</div>
+                <div class="info-item-value">${persona.AREA}</div>
+              </div>
+            </div>
+
+            <div class="vote-section">
+              <div class="vote-question">¿Ya ejerció su voto?</div>
+              <div class="vote-desc">Por favor indique si ya emitió su voto en el proceso electoral 2026–2028 del CIFHS.</div>
+              <div class="vote-btns">
+                <button class="btn-primary btn-gold" onclick="marcarVoto(true)">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  Sí, ya voté
+                </button>
+                <button class="btn-outline" onclick="marcarVoto(false)">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                  No, aún no voté
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <button class="btn-outline" style="width:100%;margin-top:4px;" onclick="limpiar()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.5"/></svg>
+          Consultar otro DNI
+        </button>`;
+    } else {
+      resultDiv.innerHTML = `
+        <div class="result-panel">
+          <div class="result-header error">
+            <div class="result-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#8B1A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="15" y1="9" x2="9" y2="15"/>
+                <line x1="9" y1="9" x2="15" y2="15"/>
+              </svg>
+            </div>
+            <div>
+              <div class="result-badge error">No habilitado para votar</div>
+              <div class="result-name" style="color:#9BA3B4;font-size:14px;font-family:'DM Sans',sans-serif;font-weight:400;">DNI no encontrado en el padrón</div>
+            </div>
+          </div>
+          <div class="result-body">
+            <div class="dni-display">${dniPadded}</div>
+            <p class="error-msg">El DNI <strong>${dniPadded}</strong> no figura en el padrón electoral del proceso de elección del CIFHS — Período 2026–2028 de <strong>AGENCIAS RANSA S.A.C.</strong></p>
+            <div class="error-note"><strong>¿Cree que es un error?</strong> Verifique que ingresó todos los dígitos correctamente, o consulte con el área de Recursos Humanos.</div>
+            <button class="btn-outline" onclick="limpiar()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.5"/></svg>
+              Intentar con otro DNI
+            </button>
+          </div>
+        </div>`;
+    }
+    resultDiv.style.display = 'block';
+    resultDiv.scrollIntoView({ behavior:'smooth', block:'nearest' });
+  }, 80);
+}
+
+function marcarVoto(voted) {
+  const voteSection = document.querySelector('.vote-section');
+  if (!voteSection) return;
+
+  if (voted) {
+    voteSection.innerHTML = `
+      <div class="voted-box">
+        <div class="voted-check">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#3AAA35" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="voted-title">Gracias por participar</div>
+        <div class="voted-desc">Su voto ha sido registrado en el proceso electoral 2026–2028. Su participación fortalece la gestión del CIFHS.</div>
+        <button class="btn-outline" style="background:transparent;border-color:rgba(255,255,255,0.2);color:rgba(255,255,255,0.6);max-width:240px;margin:0 auto;" onclick="limpiar()">
+          Consultar otro DNI
+        </button>
+      </div>`;
+  } else {
+    voteSection.innerHTML = `
+      <div class="notvoted-box">
+        <div class="notvoted-title">Aún no ha ejercido su voto</div>
+        <div class="notvoted-desc">
+          Le recordamos que su participación es importante para la conformación del CIFHS — Período 2026–2028.<br><br>
+          Por favor complete el siguiente formulario para registrar su situación de voto pendiente:
+        </div>
+        <a class="btn-forms" href="${FORMS_URL}" target="_blank" rel="noopener noreferrer">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          Completar Formulario de Registro
+        </a>
+      </div>
+      <button class="btn-outline" style="margin-top:10px;" onclick="limpiar()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.5"/></svg>
+        Consultar otro DNI
+      </button>`;
+  }
+  voteSection.scrollIntoView({ behavior:'smooth', block:'nearest' });
+}
+
+function limpiar() {
+  document.getElementById('result').style.display = 'none';
+  document.getElementById('dniInput').value = '';
+  document.getElementById('dniInput').focus();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
